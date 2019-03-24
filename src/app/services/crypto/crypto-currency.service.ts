@@ -12,6 +12,7 @@ export class CryptoCurrencyService {
   cryptoData:string = 'https://api.coinranking.com/v1/public/coins'; 
 
   getCryptoData(){
+    console.log('Analyzing market...')
     return this.http.get(this.Cors + this.cryptoData);
   }
 }

@@ -11,9 +11,15 @@ import { JobsService } from 'src/app/services/jobs/jobs.service';
 })
 export class DashboardPageComponent implements OnInit {
 
-  showData:string = '';
-  value:number;
+  /* Dev joke:
+    You never get mutli-threaded issues, if you only have one thread.  
+  */
 
+  // Global variables
+  showData:string = '';
+  showMenu: boolean = false;
+
+  // Storing data recieved from api's, so they dont have to fetch every time the component is rendered
   weatherData:any[] = []; 
   cryptoCurrency:any[] = [];
   tvData:any[] = [];
@@ -28,6 +34,18 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit() {}
 
+  // Hide and show menu on smaller devices
+  toggleMenu(){
+    this.showMenu = !this.showMenu;
+  }
+
+  // Simulate when a user sign out
+  signOut(){
+    localStorage.removeItem('auth-token');
+    window.location.reload();
+  }
+
+  // Weather component data handler
   displayWeather(){
     this.showData = 'weather';
     if( this.weatherData.length < 1 ){
@@ -39,36 +57,41 @@ export class DashboardPageComponent implements OnInit {
     }
   }
 
+  // Crypto component data handler
   displayCryptoData(){
     this.showData = 'crypto';
     if( this.cryptoCurrency.length < 1 ){
       this.crypto.getCryptoData().subscribe( (response:any) =>{
         this.cryptoCurrency = response.data.coins;
+        console.log(this.cryptoCurrency);
       }), error => {
         console.error(error);
       }
     }
   }
 
+  // Tv component data handler
   displayTvSchedule(){
     this.showData = 'tv schedule';
     if( this.tvData.length < 1){
       this.tv.getTvSchedule().subscribe( (response:any) =>{
         this.tvData = response;
+        console.log('There is an issue where a few of the returned objects dont have an image, therefore the error below')
       }), error => {
-        console.log(error)
+        console.error(error)
       }
     }
   }
 
+  // Job component data handler
   displayJobs(){
     this.showData = 'jobs';
-    if( this.tvData.length < 1){
+    if( this.jobData.length < 1){
       this.jobs.getJobList().subscribe( (response:any) =>{
         console.log(response);
         this.jobData = response;
       }), error => {
-        console.log(error)
+        console.error(error)
       }
     }
   }

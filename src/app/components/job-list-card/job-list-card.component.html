@@ -1,3 +1,11 @@
-<p>
-  job-list-card works!
-</p>
+
+<div class="card">
+  <div class="logo">
+      <img [src]="job_data.company_logo">
+  </div>
+  <h2>Company: {{ job_data.company }}</h2>
+  <p>Position: {{job_data.type}}</p>
+  <p>Description: {{ job_data.title }}</p>
+  <p>Location: {{ job_data.location }}</p><br/>
+  <a [href]="job_data.url">Apply Now</a>
+</div>

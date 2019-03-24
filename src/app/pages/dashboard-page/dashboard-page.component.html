@@ -1,27 +1,53 @@
 
 <div class="selection">
+  <div class="center-item">
+    <h2>Dashboard</h2>
+  </div>
   <input type="button" value="Weather" (click)="displayWeather()" >
   <input type="button" value=" Crypto Currency" (click)="displayCryptoData()">
   <input type="button" value="Tv Schedule" (click)="displayTvSchedule()">
-  <input type="button" value=" 4th API">
+  <input type="button" value=" Jobs List" (click)="displayJobs()">
+  <input type="button" class="right-item" value="Sign out&#10132;" (click)="signOut()">
 </div>
 
-<div *ngIf="(weatherData.length > 0) && (showData=='weather')">
+
+<div class="mobile-selection">
+  <div class="center-item">
+    <h2>Dashboard</h2>
+  </div>
+  <button (click)="toggleMenu()">&#9776;</button>
+  <div class="mobile-items" *ngIf="showMenu">
+    <input type="button" value="Weather" (click)="displayWeather()" >
+    <input type="button" value=" Crypto Currency" (click)="displayCryptoData()">
+    <input type="button" value="Tv Schedule" (click)="displayTvSchedule()">
+    <input type="button" value=" Jobs List" (click)="displayJobs()">
+    <input type="button" class="right-item" value="Sign out&#10132;">
+  </div>
+</div>
+
+<div class="placeholder" *ngIf="showData==''"> 
+
+</div>
+
+<div class="weather-container" *ngIf="(weatherData.length > 0) && (showData=='weather')">
   <app-weather-card *ngFor="let i of weatherData" [weather_data]="i">
-  </app-weather-card>    
+  </app-weather-card>
 </div>
 
-<div *ngIf="(cryptoCurrency.length > 0) && (showData=='crypto')">
+
+<div class="crypto-container" *ngIf="(cryptoCurrency.length > 0) && (showData=='crypto')">
   <app-crypto-card *ngFor="let i of cryptoCurrency" [crypto_data]="i">
   </app-crypto-card>
 </div>
 
-<div *ngIf="(tvData.length > 0) && (showData=='tv schedule')">
+
+<div class="tv-container" *ngIf="(tvData.length > 0) && (showData=='tv schedule')">
   <app-tv-schedule-card *ngFor="let i of tvData" [tv_data]="i">
   </app-tv-schedule-card>
 </div>
 
-<div *ngIf="(jobData.length > 0) && (showData=='jobs')">
-  <app-job-list-card *ngFor="let i of jobData">
+
+<div class="job-container" *ngIf="(jobData.length > 0) && (showData=='jobs')">
+  <app-job-list-card *ngFor="let i of jobData" [job_data]="i">
   </app-job-list-card>
 </div>

@@ -12,6 +12,7 @@ export class TvScheduleService {
   tvData:string = 'http://api.tvmaze.com/schedule'; 
 
   getTvSchedule(){
+    console.log('Fetching Tv schedule...')
     return this.http.get(this.Cors + this.tvData);
   }
 

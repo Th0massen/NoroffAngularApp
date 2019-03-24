@@ -9,7 +9,9 @@ export class CryptoCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Displaying crypto market data')
+  }
 
   @Input() crypto_data = {};
 

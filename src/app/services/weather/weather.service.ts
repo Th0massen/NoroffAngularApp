@@ -14,6 +14,7 @@ export class WeatherService {
   weatherData:string = 'https://www.metaweather.com/api/location/862592/'; 
 
   getWeatherData(){
+    console.log('Gathering weather data...')
     return this.http.get(this.Cors + this.weatherData);
   }
 }

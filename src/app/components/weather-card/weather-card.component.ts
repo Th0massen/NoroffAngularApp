@@ -9,7 +9,9 @@ export class WeatherCardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Fetch Complete, weather data displayed')
+  }
 
   @Input() weather_data = {};
 }

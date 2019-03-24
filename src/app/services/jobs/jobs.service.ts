@@ -9,9 +9,10 @@ export class JobsService {
   constructor(private http:HttpClient) { }
 
   Cors:string = 'https://cors-anywhere.herokuapp.com/';
-  workData:string = 'http://api.dataatwork.org/v1/jobs'; 
+  workData:string = 'https://jobs.github.com/positions.json?search=javascript'; 
 
   getJobList(){
+    console.log('Retrieving Job list...')
     return this.http.get(this.Cors + this.workData);
   }
 }

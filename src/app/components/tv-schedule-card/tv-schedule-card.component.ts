@@ -12,6 +12,7 @@ export class TvScheduleCardComponent implements OnInit {
   @Input() tv_data = {};
 
   ngOnInit() {
+    console.log('Displaying Tv Schedule.')
   }
 
 }
