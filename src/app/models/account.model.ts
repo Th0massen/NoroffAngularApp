@@ -1,5 +1,5 @@
 
 export interface AccountModel {
-    username: String;
-    password: String;
+    username:string;
+    password:string;
 }

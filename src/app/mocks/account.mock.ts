@@ -2,7 +2,7 @@ import { AccountModel } from '../models/account.model';
 
 const account:AccountModel = {
     username: 'admin',
-    password: 'root' 
+    password: 'admin' 
 };
 
 export const MOCK_ACCOUNT = account;

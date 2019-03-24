@@ -17,7 +17,7 @@ export class DashboardPageComponent implements OnInit {
 
   // Global variables
   showData:string = '';
-  showMenu: boolean = false;
+  showMenu:boolean = false;
 
   // Storing data recieved from api's, so they dont have to fetch every time the component is rendered
   weatherData:any[] = []; 

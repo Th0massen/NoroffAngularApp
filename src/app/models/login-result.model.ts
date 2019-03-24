@@ -1,5 +1,5 @@
 
 export interface LoginResultModel {
-    success: Boolean;
-    message?: String;
+    success:boolean;
+    message?:string;
 }
